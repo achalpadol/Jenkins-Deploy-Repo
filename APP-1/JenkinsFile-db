@@ -31,7 +31,12 @@ pipeline {
         PROD_DOCKER_CREDS  = "02_docker_hub_creds"
     }
 
-
+     parameters {
+        choice(
+            name: 'Environment',
+            choices: ['dev', 'qa', 'uat', 'prod'],
+            description: 'Select deployment environment'
+        )
     stages {
 
         /*
